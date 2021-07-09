@@ -1,0 +1,43 @@
+version: '2'
+services:
+  web:
+    image: odoo:11.0
+    depends_on:
+      - db
+    environment:
+      - ODOO_SERVER=odoo-bin
+      - WDB_NO_BROWSER_AUTO_OPEN=True
+      - WDB_SOCKET_SERVER=wdb
+      - WDB_WEB_PORT=1984
+      - WDB_WEB_SERVER=localhost
+    links:
+      - wdb:wdb
+    ports:
+      - "8011:8069"
+    volumes:
+      - odoo11-web-data:/var/lib/odoo
+      - ./home/asop/Documents/docker/debug-odoo11/config:/etc/odoo
+#      - /home/asop/Documents/custome/odoo_pti:/mnt/extra-addons
+#      - /home/asop/Documents/odoo11/odoo/addons:/addons/11.0
+    container_name: odoo11-web
+    restart: always
+  db:
+    image: postgres:10
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo11-db-data:/var/lib/postgresql/data/pgdata
+    container_name: odoo11-db
+    restart: always
+  wdb:
+    image: yajo/wdb-server
+    ports:
+      - "1911:1984"
+    container_name: odoo11-wdb
+    restart: always
+volumes:
+  odoo11-web-data:
+  odoo11-db-data:

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: "postgres:10"
+    ports:
+      - "28018:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    container_name: odoo11-db
+    restart: always
+  odoo:
+    image: "odoo:11.0"
+    ports:
+      - "8011:8069"
+    volumes:
+      - /home/asop/Documents/custome/odoo_pti:/mnt/extra-addons
+      - /home/asop/Documents/odoo11/odoo/addons:/addons/11.0
+    container_name: odoo11-web
+    restart: always
+    depends_on:
+      - db
+
+
