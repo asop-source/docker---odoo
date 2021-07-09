@@ -16,9 +16,9 @@ services:
       - "8011:8069"
     volumes:
       - odoo11-web-data:/var/lib/odoo
-      - ./home/asop/Documents/docker/debug-odoo11/config:/etc/odoo
-#      - /home/asop/Documents/custome/odoo_pti:/mnt/extra-addons
-#      - /home/asop/Documents/odoo11/odoo/addons:/addons/11.0
+#      - ./home/asop/Documents/docker/debug-odoo11/config:/etc/odoo
+      - /home/asop/Documents/custome/odoo_pti:/mnt/extra-addons
+      - /home/asop/Documents/odoo11/odoo/addons:/addons/11.0
     container_name: odoo11-web
     restart: always
   db:
