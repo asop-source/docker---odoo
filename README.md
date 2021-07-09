@@ -2,7 +2,19 @@
 
 Installation and debug Odoo ERP in Docker using pycharm
 
-Check:
+install odoo use docker-compose 
+
+check folder in file docker-compose.yml:
+
+    cd docker-odoo/debug-odoo or cd docker-odoo/odoo11
+
+if you do in folder docker-compose.yml
+
+install like this 
+
+    sudo docker-compose up -d
+
+and then Check:
     
     localhost:1911
 
