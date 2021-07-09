@@ -10,7 +10,16 @@ Try debug Fungsion:
 
     import wdb; wdb.set_trace()
 
-running Odoo on fungsion this
+restart Docker Container Odoo
+
+    sudo docker restart <name containner odoo>
+
+run logs odoo containner:
+
+    sudo docker logs -f <name containner odoo>
+
+running Odoo on fungsion Odoo
+
 Check debug in 
         
     localhost:1911
