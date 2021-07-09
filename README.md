@@ -1,2 +1,2 @@
 # docker-odoo
-Installation Docker in Odoo ERP
+Installation and debug Odoo ERP in Docker
